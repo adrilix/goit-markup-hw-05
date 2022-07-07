@@ -15,6 +15,9 @@
     --social-icons: #AFB1B8;
     --footer-icon-bgc: 
     rgba(255, 255, 255, 0.1);
+/* Властивості ховеру та фокусу: */
+    --anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
 }
 
@@ -92,18 +95,18 @@ img{
 .header{
     border-bottom: 1px solid var(--header-line);
     padding-top: 24px;
-    padding-bottom: 25px;
 }
 
 .box-header{
     display: flex;
     background-color: var(--text-third-tlbgc);
     justify-content: space-between;
+    align-items: baseline;
 }
 
 .box-nav{
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .header-link{
@@ -137,20 +140,27 @@ img{
 /* header-items */
 .header-items{
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    /* height: 80px; */
 }
 
 .header-item {
+    display: flex;
     color:var(--text-first);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.1;
     letter-spacing: 0.02em;
-
 }
 
 .header-item:not(:last-child){
     margin-right: 50px;
+}
+
+
+.nav-link{
+    display: block;
+    transition: color var(--anim);
 }
 
 .nav-link:hover,
@@ -161,6 +171,25 @@ img{
 .nav-link.list.current{
     color:var(--brand-color);
 }
+
+.studio.current::after{
+    content:"" ;
+    display: block;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--brand-color);
+    margin-top: 28px;
+    /* outline: 5px solid rgb(4, 0, 255); */
+}
+.portfolio.current::after{
+    content:"" ;
+    display: block;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--brand-color);
+    margin-top: 28px;
+}
+
 
 /* header-contact */
 
@@ -183,7 +212,14 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color var(--anim);
 }
+
+.mail:hover,:focus,
+.phone:hover,:focus{
+    color: var(--brand-color);
+}
+
 .svg-header{
     fill: currentColor;
     margin-right: 10px;
@@ -192,12 +228,6 @@ img{
 
 .contact:not(:last-child){
     margin-right: 50px;
-}
-
-
-.mail:hover,:focus,
-.phone:hover,:focus{
-    color: var(--brand-color);
 }
 
 
@@ -256,18 +286,18 @@ img{
 
 } 
 
-.button-hero:focus{
+/* .button-hero:focus{
     color: var(--text-third-tlbgc);
-}
+} */
 
 
 
 
 /* секція особливості/features */
 
-.features {
+/* .features {
     display: flex;
-} 
+}  */
 
 .features-items{
     display: flex;
